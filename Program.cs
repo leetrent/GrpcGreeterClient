@@ -19,12 +19,10 @@ namespace GrpcGreeterClient
             GrpcChannel             channel = GrpcChannel.ForAddress(SERVER_ADDRESS);
             Greeter.GreeterClient   client  = new Greeter.GreeterClient(channel);
             HelloReply              reply   = await client.SayHelloAsync(new HelloRequest { Name = "GreeterClient" } );
-
-            Console.WriteLine("Greeting: " + reply.Message);
+ 
+            Console.WriteLine("[GrpcGreeterClient][Main] => (reply.Message): " + (reply.Message) );
             Console.WriteLine("Press any key to exit...");
-            // Console.ReadKey();
             Console.Read();
-
         }
     }
 }
